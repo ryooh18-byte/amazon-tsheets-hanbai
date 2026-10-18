@@ -142,7 +142,7 @@
     /* ===== 締めのMESSAGE ===== */
     .closing-message{padding:20px 0 30px}
     .completion{margin:0;padding:32px 34px;border-radius:24px;background:var(--sage-deep);color:#fff;text-align:center;box-shadow:0 20px 42px rgba(61,81,72,.18)}
-    .completion b{display:block;font-family:var(--serif);font-size:1.35rem}
+    .completion b{display:block;font-family:var(--serif);font-size:clamp(.72rem,3.8vw,1.35rem);letter-spacing:-.02em;white-space:nowrap}
     .completion span{display:block;margin-top:8px;color:#e7ede5;font-size:.95rem}
 
     /* ===== 長文メッセージカード ===== */
@@ -197,7 +197,7 @@
       .stat-strip{grid-template-columns:1fr;gap:10px}.stat{min-height:auto;padding:18px 17px}.mini-grid{grid-template-columns:1fr}
       .publish-row{grid-template-columns:44px 1fr;gap:11px;padding:17px 14px}.publish-number{width:38px;height:38px}
       th,td{min-width:128px}
-      .completion{padding:26px 22px;border-radius:20px}
+      .completion{padding:26px 14px;border-radius:20px}
       .cta-card{padding-left:16px;padding-right:16px;border-radius:26px}
       .sticky{display:block;position:fixed;z-index:10;left:0;right:0;bottom:0;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:rgba(251,248,241,.94);backdrop-filter:blur(12px);border-top:1px solid var(--line)}
       .sticky .button{width:100%;min-height:52px}
@@ -242,7 +242,8 @@
       <div class="wrap">
         <p class="intro-text">このガイドを読んでくださり、本当にありがとうございます。
 
-54歳からAIを学び始めた経験をもとに、パソコンが苦手な50代女性へ、
+54歳からAIを学び始めた経験をもとに、
+パソコンが苦手な50代女性へ、
 AIで副収入を得るための方法を分かりやすく発信しています✨</p>
       </div>
     </section>
@@ -290,8 +291,8 @@ AIで副収入を得るための方法を分かりやすく発信しています
       <div class="wrap">
         <div class="section-head">
           <p class="eyebrow steps-kicker">STEPS</p>
-          <h2>アイデアを入稿データへ変える、<span class="accent">3つの工程</span></h2>
-          <p>「誰が着るか」から考え始め、印刷に向く絵へ磨き、出品に使えるデータへ整えます。</p>
+          <h2>アイデアを入稿データへ変える、<br><span class="accent">3つの工程</span></h2>
+          <p>「誰が着るか」から考え始め、<br>印刷に向く絵へ磨き、<br>出品に使えるデータへ整えます。</p>
         </div>
 
         <article class="step" data-step="01">
@@ -522,22 +523,26 @@ AIで副収入を得るための方法を分かりやすく発信しています
     document.querySelectorAll('[data-copy]').forEach(function(button){
       button.addEventListener('click',function(){
         var target=document.getElementById(button.dataset.copy);
-        var text=target.innerText;
-        var copied=false;
-        try{
-          var area=document.createElement('textarea');
-          area.value=text;area.setAttribute('readonly','');area.style.position='fixed';area.style.opacity='0';
-          document.body.appendChild(area);area.select();copied=document.execCommand('copy');area.remove();
-        }catch(error){}
+        var text=target ? (target.textContent||'').trim() : '';
         function showResult(success){
           var old='コピーする';button.textContent=success?'コピーしました':'コピーできませんでした';
           setTimeout(function(){button.textContent=old},1800);
         }
-        if(copied){showResult(true);return;}
+        function fallbackCopy(){
+          var copied=false;
+          var area=document.createElement('textarea');
+          try{
+            area.value=text;area.setAttribute('readonly','');area.style.position='fixed';area.style.left='-9999px';area.style.top='0';
+            document.body.appendChild(area);area.focus();area.select();area.setSelectionRange(0,area.value.length);
+            copied=document.execCommand('copy');
+          }catch(error){}finally{area.remove()}
+          showResult(copied);
+        }
+        if(!text){showResult(false);return;}
         if(navigator.clipboard&&window.isSecureContext){
-          navigator.clipboard.writeText(text).then(function(){showResult(true)}).catch(function(){showResult(false)});
+          navigator.clipboard.writeText(text).then(function(){showResult(true)}).catch(fallbackCopy);
         }else{
-          showResult(false);
+          fallbackCopy();
         }
       });
     });
