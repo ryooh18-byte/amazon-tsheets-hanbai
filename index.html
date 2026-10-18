@@ -19,6 +19,7 @@
     *{box-sizing:border-box}
     html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
     body{margin:0;background:linear-gradient(90deg,rgba(61,81,72,.022) 1px,transparent 1px) 0 0/52px 52px,var(--paper);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.9;font-weight:500}
+    p,.note,.rule,.publish-row,.check-list li{text-wrap:pretty}
     a{color:inherit}
     .wrap{width:min(760px,calc(100% - 34px));margin:auto}
     .wide{width:min(1120px,calc(100% - 48px));margin:auto}
@@ -111,6 +112,17 @@
     .rule{display:flex;gap:12px;align-items:flex-start;margin:18px 0;padding:16px 18px;border:1px solid #e6dccf;border-radius:14px;background:#f6f2ea}
     .rule b{display:block;color:var(--sage-deep);font-size:.82rem;letter-spacing:.04em;margin-bottom:4px}
     .rule p{margin:0;font-size:.89rem;line-height:1.7;color:var(--muted)}
+    .step-example{display:grid;grid-template-columns:minmax(190px,.78fr) minmax(0,1.22fr);gap:24px;align-items:center;margin:22px 0;padding:20px;border:1px solid #dfd6c9;border-radius:22px;background:linear-gradient(145deg,#fffdf9,#f4efe6);box-shadow:0 8px 24px rgba(61,55,45,.06)}
+    .step-example-art{position:relative;overflow:hidden;border-radius:18px;background-color:#fff;background-image:linear-gradient(45deg,#e3e5e1 25%,transparent 25%),linear-gradient(-45deg,#e3e5e1 25%,transparent 25%),linear-gradient(45deg,transparent 75%,#e3e5e1 75%),linear-gradient(-45deg,transparent 75%,#e3e5e1 75%);background-size:24px 24px;background-position:0 0,0 12px,12px -12px,-12px 0;box-shadow:0 10px 26px rgba(25,36,43,.12)}
+    .step-example-art img{display:block;width:100%;height:auto}
+    .step-example-badge{position:absolute;top:12px;left:12px;padding:5px 10px;border-radius:999px;background:rgba(255,253,249,.9);color:var(--sage-deep);font-size:.7rem;font-weight:700;letter-spacing:.04em;backdrop-filter:blur(6px)}
+    .step-example-copy{margin:0}
+    .step-example-kicker{display:block;margin-bottom:7px;color:var(--terra);font-size:.76rem;font-weight:700;letter-spacing:.08em}
+    .step-example-copy h4{margin:0 0 10px;font-family:var(--serif);font-size:1.25rem;line-height:1.5;color:var(--ink)}
+    .step-example-copy p{margin:0;color:var(--muted);font-size:.88rem;line-height:1.75}
+    .step-example-copy .example-input{margin:0 0 12px;padding:9px 12px;border-radius:10px;background:#fff;color:#6a5a4c;font-size:.8rem;line-height:1.6}
+    .step-example-copy .example-point{margin-top:13px;padding-top:13px;border-top:1px dashed #d7cbbd}
+    .step-example-copy .example-point b{color:var(--sage-deep)}
 
     .plain-box{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:30px;margin-top:26px;box-shadow:0 7px 20px rgba(61,55,45,.035)}
     .plain-box h3{font-size:1.35rem;margin-bottom:10px}
@@ -195,6 +207,7 @@
       .prompt-head{align-items:flex-start}.prompt pre{font-size:.82rem}
       .plain-box{padding:24px 20px}
       .stat-strip{grid-template-columns:1fr;gap:10px}.stat{min-height:auto;padding:18px 17px}.mini-grid{grid-template-columns:1fr}
+      .step-example{grid-template-columns:1fr;gap:17px;padding:16px}.step-example-art{width:min(100%,360px);margin:0 auto}.step-example-copy h4{font-size:1.15rem}
       .publish-row{grid-template-columns:44px 1fr;gap:11px;padding:17px 14px}.publish-number{width:38px;height:38px}
       th,td{min-width:128px}
       .completion{padding:26px 14px;border-radius:20px}
@@ -218,7 +231,7 @@
       <div class="hero-title">
         <p class="eyebrow">在庫を持たずに、自分の商品を販売したい方へ</p>
         <h1>ChatGPTでデザインを1枚。<br><em>AmazonでTシャツ販売</em></h1>
-        <p class="hero-lead">絵が描けなくても大丈夫。アイデア出しから画像作成、出品データの準備まで、初心者でも迷いにくい3ステップにまとめました。</p>
+        <p class="hero-lead">絵が描けなくても大丈夫。<br>アイデア出しから画像作成、出品データの準備まで、初心者でも迷いにくい3ステップにまとめました。</p>
         <ul class="hero-points" aria-label="この方法の特徴">
           <li>先行仕入れなし</li><li>梱包作業なし</li><li>発送対応なし</li><li>企画シート付き</li>
         </ul>
@@ -255,7 +268,7 @@ AIで副収入を得るための方法を分かりやすく発信しています
           <p class="eyebrow">このガイドについて</p>
           <h2>難しそうなTシャツ販売を、<br><span class="accent">まず1枚作れる形</span>にしました</h2>
         </div>
-        <p>ChatGPTでアイデアを形にし、Canvaで入稿データを整える。Amazon Merch on Demandの承認後に作品と商品情報を登録すれば、注文後の印刷・発送はAmazonに任せられるため、先に商品を仕入れる必要はありません。</p>
+        <p>ChatGPTでアイデアを形にし、Canvaで入稿データを整える。<br>Amazon Merch on Demandの承認後に作品と商品情報を登録すれば、注文後の印刷・発送はAmazonに任せられるため、先に商品を仕入れる必要はありません。</p>
         <ul class="check-list">
           <li>デザイン経験がなくても、今日から1案目を作れる</li>
           <li>印刷機・在庫・梱包スペースを用意しなくていい</li>
@@ -298,7 +311,7 @@ AIで副収入を得るための方法を分かりやすく発信しています
         <article class="step" data-step="01">
           <span class="step-label">STEP 1</span>
           <h3>着る人の場面から、企画を5方向に広げる</h3>
-          <p>絵柄から考えるのではなく、「どんな人が、いつ着たくなるか」を出発点にします。購入者の気持ちが違う5つの企画を並べ、いちばん共感できる方向を選びます。</p>
+          <p>絵柄から考えるのではなく、「どんな人が、いつ着たくなるか」を出発点にします。<br>購入者の気持ちが違う5つの企画を並べ、いちばん共感できる方向を選びます。</p>
           <div class="prompt">
             <div class="prompt-head"><b>購入者から逆算する企画シート</b><button class="copy" type="button" data-copy="prompt1">コピーする</button></div>
             <details class="prompt-details">
@@ -324,7 +337,7 @@ AIで副収入を得るための方法を分かりやすく発信しています
 既存作品・企業・著名人・スポーツチームを連想させる固有要素は使わず、一般的な題材から独自に組み立ててください。</pre>
             </details>
           </div>
-          <p>入力欄を全部埋められなくても構いません。「誰に」「どんな場面で」の2つが決まれば、ChatGPTと一緒に残りを詰められます。</p>
+          <p>入力欄を全部埋められなくても構いません。<br>「誰に」「どんな場面で」の2つが決まれば、ChatGPTと一緒に残りを詰められます。</p>
           <div class="plain-box">
             <h3>方向がぼんやりしているときは</h3>
             <p>新しい会話へ移らず、直前の回答へ追加条件を出します。</p>
@@ -340,7 +353,7 @@ AIで副収入を得るための方法を分かりやすく発信しています
         <article class="step" data-step="02">
           <span class="step-label">STEP 2</span>
           <h3>選んだ企画を「印刷映えする絵」へ磨く</h3>
-          <p>採用する企画を1つ選び、商品写真ではなく「印刷に使う絵柄だけ」を作ります。文字なしの方が失敗は少なくなります。文字を入れる場合は短い言葉を1回だけ指定し、完成後に一字ずつ確認します。</p>
+          <p>採用する企画を1つ選び、商品写真ではなく「印刷に使う絵柄だけ」を作ります。<br>文字なしの方が失敗は少なくなります。<br>文字を入れる場合は短い言葉を1回だけ指定し、完成後に一字ずつ確認します。</p>
           <div class="prompt">
             <div class="prompt-head"><b>印刷用アートへの変換指示</b><button class="copy" type="button" data-copy="prompt2">コピーする</button></div>
             <details class="prompt-details">
@@ -370,27 +383,40 @@ AIで副収入を得るための方法を分かりやすく発信しています
             </details>
           </div>
           <div class="rule">
-            <div><b>迷ったら「A：文字なし」がおすすめ</b><p>絵柄を先に完成させ、必要ならCanvaで文字を加えると、誤字や文字崩れを避けやすくなります。「B：文字あり」を選んだ場合は一字ずつ照合し、1文字でも違えばそのまま使用しないでください。</p></div>
+            <div><b>迷ったら「A：文字なし」がおすすめ</b><p>絵柄を先に完成させ、必要ならCanvaで文字を加えると、誤字や文字崩れを避けやすくなります。<br>「B：文字あり」を選んだ場合は一字ずつ照合し、1文字でも違えばそのまま使用しないでください。</p></div>
           </div>
+          <figure class="step-example">
+            <div class="step-example-art">
+              <img src="assets/kyoto-transparent-example.png" alt="提灯とのれんがある京都の町家路地を描いたAI生成アート" width="1024" height="1536" loading="lazy" decoding="async">
+              <span class="step-example-badge">チェック柄の部分が透明</span>
+            </div>
+            <figcaption class="step-example-copy">
+              <span class="step-example-kicker">実際に作ってみました</span>
+              <h4>「京都」の文字までAIに任せると？</h4>
+              <p class="example-input">入力した条件：日本の路地／文字あり／漢字で「京都」</p>
+              <p>町家・提灯・路地の雰囲気は、色数を絞った印象的な絵にまとまりました。<br>チェック柄が見える部分は透明です。<br>「京都」は明るい背景では読めますが、濃い色のTシャツでは沈んで見える可能性があります。</p>
+              <p class="example-point"><b>ここがポイント：</b>透過できていても、使うTシャツの色に重ねて文字の見え方を確認します。<br>正確さや読みやすさを整えたい場合は、絵柄をAIで作り、文字をCanvaで後から加える方法が安心です。</p>
+            </figcaption>
+          </figure>
           <div class="mini-grid">
             <div class="mini-card"><b>一覧で伝わる</b><p>主役が大きい／輪郭が明快／言葉がひと息で読める</p></div>
             <div class="mini-card"><b>一覧で伝わりにくい</b><p>小物が多い／濃淡が細かい／文章を読まないと意味が分からない</p></div>
           </div>
-          <div class="note"><b>画像が出たら確認：</b>白や市松模様が描かれているだけでなく、実際に背景が透明か、絵柄が端で切れていないか、指定した色数に収まっているかを見ます。背景が残る場合は再指示し、難しければCanvaの背景除去を使います。</div>
+          <div class="note"><b>画像が出たら確認：</b>白や市松模様が描かれているだけでなく、実際に背景が透明か、絵柄が端で切れていないか、指定した色数に収まっているかを見ます。<br>背景が残る場合は再指示し、難しければCanvaの背景除去を使います。</div>
         </article>
 
         <article class="step" data-step="03">
           <span class="step-label">STEP 3</span>
           <h3>完成データを、入稿できる形に整える</h3>
-          <p>生成した絵をCanvaで確認し、余白・大きさ・必要な文字を整えてPNGで保存します。商品を登録するときは、Amazon Merch on Demandの最新仕様と商品プレビューの両方を確認します。</p>
+          <p>生成した絵をCanvaで確認し、余白・大きさ・必要な文字を整えてPNGで保存します。<br>商品を登録するときは、Amazon Merch on Demandの最新仕様と商品プレビューの両方を確認します。</p>
           <ul class="check-list">
-            <li>PNGで保存する。透過が必要なら「透明背景」をオンにする</li>
+            <li>PNGで保存する。<br>透過が必要なら「透明背景」をオンにする</li>
             <li>Amazonの最新仕様に合わせて、画像サイズとファイル容量を確認する</li>
             <li>文字や主役が端に寄りすぎていないか確認する</li>
             <li>余分な透明余白を削り、商品ごとのプレビューで位置を確認する</li>
           </ul>
           <div class="rule">
-            <div><b>Amazonの現在の画像仕様</b><p>PNG・RGB 8bit・25MB未満が基本です。新しいデザインエディターでは縦横各485px超の画像を読み込めますが、きれいに印刷するため縦横各4500px以上が推奨されています。仕様は変わることがあるため、入稿時に管理画面の最新案内も確認してください。</p></div>
+            <div><b>Amazonの現在の画像仕様</b><p>PNG・RGB 8bit・25MB未満が基本です。<br>新しいデザインエディターでは縦横各485px超の画像を読み込めますが、きれいに印刷するため縦横各4500px以上が推奨されています。<br>仕様は変わることがあるため、入稿時に管理画面の最新案内も確認してください。</p></div>
           </div>
           <div class="note"><b>Canvaについて：</b>通常のPNG保存はできますが、背景除去や透明背景での書き出しなど、一部の機能は有料プランに含まれます。</div>
           <p class="source-links">参考：<a href="https://merch.amazon.com/resource/201849250" target="_blank" rel="noopener noreferrer">Amazon Merch on Demand Best Practices</a> ／ <a href="https://www.canva.com/help/transparent-background/" target="_blank" rel="noopener noreferrer">Canvaの透明背景ダウンロード</a></p>
@@ -399,17 +425,17 @@ AIで副収入を得るための方法を分かりやすく発信しています
         <div class="step publish-step">
           <span class="step-label">NEXT</span>
           <h3>ここから出品するまでの流れ</h3>
-          <p>3ステップでデザインの入稿準備ができたら、Amazon Merch on Demandの管理画面から出品を進めます。画面の案内に沿って、次の6段階で設定していきましょう。</p>
+          <p>3ステップでデザインの入稿準備ができたら、Amazon Merch on Demandの管理画面から出品を進めます。<br>画面の案内に沿って、次の6段階で設定していきましょう。</p>
           <div class="publish-flow">
-            <div class="publish-row"><span class="publish-number">01</span><div><b>利用申請・承認を受ける</b><p>Amazon Merch on Demandに必要事項を入力して申請します。Amazonによる承認後、商品の登録ができるようになります。</p></div></div>
+            <div class="publish-row"><span class="publish-number">01</span><div><b>利用申請・承認を受ける</b><p>必要事項を入力して申請します。<br>承認後、商品を登録できるようになります。</p></div></div>
             <div class="publish-row"><span class="publish-number">02</span><div><b>作品をアップロードする</b><p>Amazonの最新仕様を確認し、準備したPNG画像をアップロードします。</p></div></div>
             <div class="publish-row"><span class="publish-number">03</span><div><b>商品種類とカラーを選ぶ</b><p>Tシャツなど販売したい商品と、デザインが見やすいカラーを選びます。</p></div></div>
             <div class="publish-row"><span class="publish-number">04</span><div><b>商品情報・価格・販売先を設定する</b><p>商品名、ブランド名、説明文、販売価格などを入力し、利用できる販売先を選びます。</p></div></div>
-            <div class="publish-row"><span class="publish-number">05</span><div><b>プレビューとポリシーを確認する</b><p>デザインの位置や大きさ、入力内容をプレビューで確認します。商標・著作権などのポリシーにも違反していないか見直します。</p></div></div>
-            <div class="publish-row"><span class="publish-number">06</span><div><b>審査へ送信し、公開を待つ</b><p>内容を送信するとAmazonの審査が行われます。承認されると商品ページが公開されます。修正が必要になる場合もあります。</p></div></div>
+            <div class="publish-row"><span class="publish-number">05</span><div><b>プレビューとポリシーを確認する</b><p>位置・大きさと入力内容をプレビューで確認します。<br>商標・著作権などのポリシー違反がないか見直します。</p></div></div>
+            <div class="publish-row"><span class="publish-number">06</span><div><b>審査へ送信し、公開を待つ</b><p>内容を送信するとAmazonの審査が行われます。<br>承認されると商品ページが公開されます。<br>修正が必要になる場合もあります。</p></div></div>
           </div>
-          <div class="rule"><div><b>まだアカウント承認前なら</b><p>先に申請を済ませ、待っている間にPNG画像と商品説明の下書きを完成させておきましょう。管理画面でのアップロードやプレビュー確認は承認後に行います。</p></div></div>
-          <div class="note"><b>費用と受取額について：</b>Amazon Merch on Demandは初期費用・月額料金なしで利用でき、Amazonが印刷・発送・顧客対応を行います。ただし、販売価格の全額が収益になるわけではありません。Amazonの規定に基づいて計算されたロイヤリティが支払われます。</div>
+          <div class="rule"><div><b>まだアカウント承認前なら</b><p>先に申請を済ませ、待っている間にPNG画像と商品説明の下書きを完成させておきましょう。<br>管理画面でのアップロードとプレビュー確認は、承認後に行います。</p></div></div>
+          <div class="note"><b>費用と受取額について：</b>Amazon Merch on Demandは初期費用・月額料金なしで利用でき、Amazonが印刷・発送・顧客対応を行います。<br>ただし、販売価格の全額が収益になるわけではありません。<br>Amazonの規定に基づいて計算されたロイヤリティが支払われます。</div>
           <p class="source-links">公式情報：<a href="https://artists.amazonmusic.com/print-on-demand" target="_blank" rel="noopener noreferrer">申請と販売の流れ</a> ／ <a href="https://developer.amazon.com/apps-and-games/merch" target="_blank" rel="noopener noreferrer">サービス概要</a> ／ <a href="https://merch.amazon.com/resource/201858580" target="_blank" rel="noopener noreferrer">ロイヤリティ</a></p>
         </div>
 
@@ -447,7 +473,7 @@ AIで副収入を得るための方法を分かりやすく発信しています
         <div class="step">
           <span class="step-label">PLUS 2</span>
           <h3>出品前に、ここだけは30分かける</h3>
-          <p>AIで作った画像でも、公開前の確認は必要です。画像検索だけで終わらせず、文字と権利も確認します。</p>
+          <p>AIで作った画像でも、公開前の確認は必要です。<br>画像検索だけで終わらせず、文字と権利も確認します。</p>
           <div class="table-wrap">
             <table>
               <thead><tr><th>確認するもの</th><th>チェック内容</th></tr></thead>
@@ -459,7 +485,7 @@ AIで副収入を得るための方法を分かりやすく発信しています
               </tbody>
             </table>
           </div>
-          <div class="note"><b>覚えておくこと：</b>検索で同じものが見つからなかったからといって、安全が保証されるわけではありません。判断しにくいものは出品しないのが安心です。</div>
+          <div class="note"><b>覚えておくこと：</b>検索で同じものが見つからなかったからといって、安全が保証されるわけではありません。<br>判断しにくいものは出品しないのが安心です。</div>
         </div>
 
       </div>
@@ -484,8 +510,8 @@ AIで副収入を得るための方法を分かりやすく発信しています
           <p class="reassurance">「私には難しいかも？」と思っている方も安心してください。</p>
           <p class="story-highlight">私も、54歳からパソコンもまったくできない状態でAIを使い始め、今ではAI在宅ワークで副収入を得ることができています♪</p>
           <p>何もしなければ、時間だけが過ぎ、半年後も同じ悩みを抱えているかもしれません。</p>
-          <p class="key-message">AIは、どんどん進化しています。だから「いつか」ではなく、早めに始めることが大切です。</p>
-          <p class="small-step">最初から全部できなくても大丈夫。まずは、小さな一歩から始めてみませんか？</p>
+          <p class="key-message">AIは、どんどん進化しています。<br>だから「いつか」ではなく、<br>早めに始めることが大切です。</p>
+          <p class="small-step">最初から全部できなくても大丈夫。<br>まずは、小さな一歩から始めてみませんか？</p>
           <p>私と一緒にがんばりましょう！</p>
           <p class="cta-invite">受け取りはこちら👇</p>
           <a class="button" href="https://x.gd/z6wxZ" target="_blank" rel="noopener noreferrer">LINEで5大特典を無料で受け取る</a>
@@ -502,7 +528,7 @@ AIで副収入を得るための方法を分かりやすく発信しています
             <img class="cta-banner" src="./assets/free-gift-banner.png" alt="AI副業の完全ガイド 5大特典無料プレゼント">
           </a>
           <p class="banner-caption">タップで受け取れます👆</p>
-          <p>AIで副収入を得ることに興味はあるけれど、何から始めればいいか分からない方へ。まずは一つずつ、一緒に進めてみませんか。</p>
+          <p>AIで副収入を得ることに興味はあるけれど、何から始めればいいか分からない方へ。<br>まずは一つずつ、一緒に進めてみませんか。</p>
           <a class="button" href="https://x.gd/z6wxZ" target="_blank" rel="noopener noreferrer">5大特典を無料で受け取る</a>
           <p class="fine">※特典の内容・提供期間は変更・終了する場合があります。</p>
         </div>
@@ -513,7 +539,7 @@ AIで副収入を得るための方法を分かりやすく発信しています
   <footer>
     <div class="wrap">
       <div class="footer-links"><a href="https://www.instagram.com/kumi_ai_fukugyo/" target="_blank" rel="noopener noreferrer">Instagram</a></div>
-      <p>本ページは学習・情報提供を目的としたものです。成果には個人差があり、収益・表示回数・購入を保証するものではありません。商品情報や各サービスの規約は変更される場合があるため、実践時に公式情報をご確認ください。</p>
+      <p>本ページは学習・情報提供を目的としたものです。<br>成果には個人差があり、収益・表示回数・購入を保証するものではありません。<br>商品情報や各サービスの規約は変更される場合があるため、実践時に公式情報をご確認ください。</p>
       <p>© 2026 Kumi</p>
     </div>
   </footer>
