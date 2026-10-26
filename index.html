@@ -100,7 +100,7 @@
     .prompt:before{content:"";position:absolute;left:0;top:22px;bottom:22px;width:3px;border-radius:0 3px 3px 0;background:var(--terra)}
     .prompt-head{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:12px}
     .prompt-head b{font-size:.9rem;color:#dbe8d8}
-    .copy{border:1px solid rgba(255,255,255,.28);background:transparent;color:#fff;border-radius:999px;padding:7px 13px;cursor:pointer;font:inherit;font-size:.78rem}
+    .copy{flex:0 0 auto;white-space:nowrap;border:1px solid rgba(255,255,255,.28);background:transparent;color:#fff;border-radius:999px;padding:7px 13px;cursor:pointer;font:inherit;font-size:.78rem}
     .prompt pre{white-space:pre-wrap;margin:0;font-family:var(--sans);font-size:.87rem;line-height:1.75;color:#f7f3e9}
     .prompt-details summary{cursor:pointer;color:#cfe3d5;font-size:.85rem}
     .prompt-details summary::marker{color:#cfe3d5}
@@ -190,6 +190,8 @@
     footer{padding:42px 0 110px;text-align:center;color:var(--muted);font-size:.8rem}
     .footer-links{display:flex;justify-content:center;gap:20px;margin-bottom:13px}
     .sticky{display:none}
+    .sticky.is-hidden{display:none}
+    #present .button{width:100%;margin-top:24px;padding-inline:12px;font-size:clamp(.78rem,3.3vw,1rem);white-space:nowrap}
 
     @media(max-width:760px){
       body{font-size:16px}
@@ -421,9 +423,28 @@ AIで副収入を得るための方法を分かりやすく発信しています
             <li>文字や主役が端に寄りすぎていないか確認する</li>
             <li>余分な透明余白を削り、商品ごとのプレビューで位置を確認する</li>
           </ul>
-          <div class="note"><b>「オリジナルTシャツの完成」の補足：</b>ここで完成するのは、Tシャツへ載せたときのデザインイメージです。<br>AmazonへはTシャツの見本画像ではなく、イラストだけのPNGをアップロードします。実際の商品種類とカラーはAmazonの管理画面で選びます。</div>
+          <div class="note"><b>「オリジナルTシャツの完成」の補足：</b>CanvaのTシャツモックアップは、あくまで商品の見え方を確認するための機能です。<br>AmazonへはTシャツの見本画像ではなく、イラストだけのPNGをアップロードします。実際の商品種類とカラーはAmazonの管理画面で選びます。</div>
           <div class="rule">
-            <div><b>Amazonの現在の画像仕様</b><p>PNG・RGB 8bit・25MB未満が基本です。<br>新しいデザインエディターでは縦横各485px超の画像を読み込めますが、きれいに印刷するため縦横各4500px以上が推奨されています。<br>仕様は変わることがあるため、入稿時に管理画面の最新案内も確認してください。</p></div>
+            <div><b>Amazonの現在の画像仕様</b><p>PNG・RGB 8bit・25MB未満が基本です。<br>新しいデザインエディターでは縦横各485pxを超える画像を読み込めますが、きれいに印刷するため、できるだけ高解像度の画像を使い、4500px以上をひとつの目安にします。<br>小さい画像を数字だけ大きくしても、元画像にない細かさまでは増えません。商品ごとの最新仕様とAmazonの商品プレビューで、実際の見え方を確認してください。</p></div>
+          </div>
+          <div class="prompt">
+            <div class="prompt-head"><b>完成画像のサイズ・透過チェック</b><button class="copy" type="button" data-copy="prompt4">コピーする</button></div>
+            <details class="prompt-details">
+              <summary>ChatGPTへ送る文章を見る</summary>
+              <pre id="prompt4">この画像をAmazon Merch on DemandのTシャツ印刷に使いたいです。
+
+まず、次の項目を確認してください。
+1. 画像の縦横サイズ（px）
+2. ファイル形式
+3. 背景が実際に透明になっているか
+4. 文字や絵柄が端で切れていないか
+5. 小さい文字や細い線が、印刷でつぶれそうではないか
+
+画像が小さい場合は、縦横比・構図・色・文字を変えず、背景の透明を保ったまま、4500px以上を目安に高解像度化できるか判断してください。
+単純な引き伸ばしでぼやける場合や、正確に処理できない場合は、無理に画像を作らず、その理由と必要な修正方法を教えてください。
+
+Tシャツ本体、人物、背景、影などは追加せず、Amazonへアップロードする「絵柄だけのPNG」として確認してください。</pre>
+            </details>
           </div>
           <div class="note"><b>Canvaについて：</b>通常のPNG保存はできますが、背景除去や透明背景での書き出しなど、一部の機能は有料プランに含まれます。</div>
           <p class="source-links">参考：<a href="https://merch.amazon.com/resource/201849250" target="_blank" rel="noopener noreferrer">Amazon Merch on Demand Best Practices</a> ／ <a href="https://www.canva.com/help/mockup-design/" target="_blank" rel="noopener noreferrer">Canvaのモックアップ作成</a> ／ <a href="https://www.canva.com/help/transparent-background/" target="_blank" rel="noopener noreferrer">Canvaの透明背景ダウンロード</a></p>
@@ -509,6 +530,7 @@ AIで副収入を得るための方法を分かりやすく発信しています
     <section class="closing-message">
       <div class="wrap">
         <div class="message-card">
+          <p>今回のTシャツ作りをきっかけに、<br>AIを使った副収入づくりをもっと知りたい方へ。</p>
           <span class="message-badge">公式LINE限定・無料</span>
           <p class="message-intro"><strong>今、期間限定で、公式LINEから</strong></p>
           <div class="gift-highlight">「AI副業の完全ガイド 5大特典」</div>
@@ -520,24 +542,14 @@ AIで副収入を得るための方法を分かりやすく発信しています
           <p class="key-message">AIは、どんどん進化しています。<br>だから「いつか」ではなく、<br>早めに始めることが大切です。</p>
           <p class="small-step">最初から全部できなくても大丈夫。<br>まずは、小さな一歩から始めてみませんか？</p>
           <p>私と一緒にがんばりましょう！</p>
-          <p class="cta-invite">受け取りはこちら👇</p>
-          <a class="button" href="https://x.gd/z6wxZ" target="_blank" rel="noopener noreferrer">LINEで5大特典を無料で受け取る</a>
-          <p class="fine">登録後、公式LINEからお受け取りいただけます。</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== 8. 最後のCTA（特典バナー）【固定】 ===== -->
-    <section class="cta" id="present">
-      <div class="wrap">
-        <div class="cta-card">
+          <div id="present">
           <a class="cta-banner-link" href="https://x.gd/z6wxZ" target="_blank" rel="noopener noreferrer">
             <img class="cta-banner" src="./assets/free-gift-banner.png" alt="AI副業の完全ガイド 5大特典無料プレゼント">
           </a>
-          <p class="banner-caption">タップで受け取れます👆</p>
-          <p>AIで副収入を得ることに興味はあるけれど、何から始めればいいか分からない方へ。<br>まずは一つずつ、一緒に進めてみませんか。</p>
-          <a class="button" href="https://x.gd/z6wxZ" target="_blank" rel="noopener noreferrer">5大特典を無料で受け取る</a>
+          <a class="button" href="https://x.gd/z6wxZ" target="_blank" rel="noopener noreferrer">公式LINEで5大特典を受け取る</a>
+          <p class="fine">登録後、公式LINEからお受け取りいただけます。</p>
           <p class="fine">※特典の内容・提供期間は変更・終了する場合があります。</p>
+          </div>
         </div>
       </div>
     </section>
@@ -553,6 +565,14 @@ AIで副収入を得るための方法を分かりやすく発信しています
 
   <div class="sticky"><a class="button" href="https://x.gd/z6wxZ" target="_blank" rel="noopener noreferrer">5大特典を無料で受け取る</a></div>
   <script>
+    var finalPresent=document.getElementById('present');
+    var stickyCta=document.querySelector('.sticky');
+    function updateStickyCta(){
+      stickyCta.classList.toggle('is-hidden',finalPresent.getBoundingClientRect().top<window.innerHeight);
+    }
+    window.addEventListener('scroll',updateStickyCta,{passive:true});
+    window.addEventListener('resize',updateStickyCta);
+    updateStickyCta();
     document.querySelectorAll('[data-copy]').forEach(function(button){
       button.addEventListener('click',function(){
         var target=document.getElementById(button.dataset.copy);
